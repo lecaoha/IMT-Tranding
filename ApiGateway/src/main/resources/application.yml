@@ -6,8 +6,29 @@ spring:
           uri: lb://ProductService
           predicates:
             - Path=/api/**
+            - Path=/users/v3/api-docs, /api/v1/users/** // add a route for Swagger api-docs
+
           filters:
             - AuthenticationFilter
+
+server:
+  port: 9003
+
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway Service
+      - url: api/v3/api-docs
+        name: ProductService
+
 ##        - id: restaurant-service
 ##          uri: lb://RESTAURANT-SERVICE
 ##          predicates:
