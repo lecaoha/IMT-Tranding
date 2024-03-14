@@ -2,17 +2,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product-service
+        - id: ProductService
           uri: lb://ProductService
+#          uri: http://localhost:9001
           predicates:
-            - Path=/api/**
-            - Path=/users/v3/api-docs, /api/v1/users/** // add a route for Swagger api-docs
-
+#            - Path= /api/**
+            - Path=/product/v3/api-docs,/api/** # add a route for Swagger api-docs
           filters:
             - AuthenticationFilter
 
-server:
-  port: 9003
 
 
 springdoc:
@@ -26,8 +24,9 @@ springdoc:
     urls:
       - url: /v3/api-docs
         name: API Gateway Service
-      - url: api/v3/api-docs
-        name: ProductService
+      - url: /product/v3/api-docs
+        name: Product Service
+
 
 ##        - id: restaurant-service
 ##          uri: lb://RESTAURANT-SERVICE
