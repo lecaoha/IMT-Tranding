@@ -17,7 +17,8 @@ public class RouterValidator {
             "/swagger-ui/*",
             "/v3/api-docs/**",
             "/swagger-resources/**",
-            "/webjars/**"
+            "/webjars/**",
+            "/product/v3/api-docs/**"
 
     );
 

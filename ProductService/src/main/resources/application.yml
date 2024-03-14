@@ -1,0 +1,11 @@
+
+openapi:
+  service:
+    title: user-service doc # title that you will want to display in the Swagger UI
+    version: 1.0.0
+    url: http://localhost:9000
+springdoc:
+  api-docs:
+    path: /product/v3/api-docs
+  swagger-ui:
+    path: /product/swagger-ui.html

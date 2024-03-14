@@ -1,6 +1,4 @@
-
-
-package com.example.APIGateway.service;
+package com.example.ApiGateway.service;
 
 
 import com.example.ApiGateway.model.AuthencationResponse;
@@ -28,8 +26,8 @@ public class AuthencationService {
     public AuthencationResponse register(RegisterRequest request) {
         User user = User.builder().email(request.getEmail()).password(this.passwordEncoder.encode(request.getPassword())).role(request.getRole()).build();
         this.userRepository.save(user);
-        String jwtToken = this.jwtService.generateToken(user);
-        return AuthencationResponse.builder().token(jwtToken).build();
+//        String jwtToken = this.jwtService.generateToken(user);
+        return AuthencationResponse.builder().token("Account created successfully").build();
     }
 
     public AuthencationResponse authenticate(AuthenticationRequest request) throws Exception {
